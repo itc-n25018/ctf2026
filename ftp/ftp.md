@@ -1,28 +1,71 @@
-# vsftpdインストール
+# FTPサーバ構築マニュアル（vsftpd）
 
-# 1 vsftpdをインストールする
+## 1. パッケージを更新する
+
 ```bash
 sudo apt update
+```
+
+## 2. vsftpdをインストールする
+
+```bash
 sudo apt install vsftpd -y
 ```
 
-# 2 ダウンロードをしたらvsftpdの起動を確認する
+## 3. サービスが起動していることを確認する
+
 ```bash
 sudo systemctl status vsftpd
 ```
-この時、実行結果後「active」と表示されていたらOK
 
-# 3 IPアドレスの確認
+`active (running)` と表示されればOK
+
+## 4. IPアドレスを確認する
+
 ```bash
 ip a
 ```
-# 4 接続する
+
+接続先となるIPアドレスを確認！
+
+## 5. FTPサーバへ接続する
+
 ```bash
-ftp IPアドレス
+ftp <IPアドレス>
 ```
 
-# 5 ユーザ名、パスワードを聞かれるので両方とも「vagrant」と答える
+例
+
 ```bash
+ftp 192.168.122.229
+```
+
+## 6. ログインする
+
+ユーザ名
+
+```text
 vagrant
 ```
 
+パスワード
+
+```text
+vagrant
+```
+
+`230 Login successful.` と表示されればログイン成功！
+
+## 7. 動作確認
+
+ファイル一覧を表示します。
+
+```bash
+ls
+```
+
+接続を終了します。
+
+```bash
+bye
+```
